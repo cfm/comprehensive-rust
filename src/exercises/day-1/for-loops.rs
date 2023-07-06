@@ -12,7 +12,7 @@ fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
 }
 
 fn pretty_print(matrix: &[[i32; 3]; 3]) {
-    unimplemented!()
+    println!("{matrix:#?}");
 }
 
 // ANCHOR: tests
