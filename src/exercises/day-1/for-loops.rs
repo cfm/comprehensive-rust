@@ -2,7 +2,13 @@
 #![allow(unused_variables, dead_code)]
 
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
-    unimplemented!()
+    let mut new: [[i32; 3]; 3] = [[0; 3]; 3];
+    for i in 0..3 {
+        for j in 0..3 {
+            new[j][i] = matrix[i][j];
+        }
+    }
+    new
 }
 
 fn pretty_print(matrix: &[[i32; 3]; 3]) {
