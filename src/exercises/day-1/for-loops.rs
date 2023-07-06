@@ -1,8 +1,5 @@
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
-
 fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
-    let mut new: [[i32; 3]; 3] = [[0; 3]; 3];
+    let mut new = [[0; 3]; 3];
     for i in 0..3 {
         for j in 0..3 {
             new[j][i] = matrix[i][j];
