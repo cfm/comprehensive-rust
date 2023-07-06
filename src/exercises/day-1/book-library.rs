@@ -42,9 +42,11 @@ impl Library {
         self.books.push(book);
     }
 
-    //fn print_books(self) {
-    //    todo!("Iterate over `self.books` and each book's title and year")
-    //}
+    fn print_books(self) {
+        for book in &self.books {
+            println!("{} ({})", book.title, book.year);
+        }
+    }
 
     //fn oldest_book(self) -> Option<&Book> {
     //    todo!("Return a reference to the oldest book (if any)")
