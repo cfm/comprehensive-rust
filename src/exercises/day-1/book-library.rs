@@ -38,9 +38,9 @@ impl Library {
         self.len() == 0
     }
 
-    //fn add_book(self, book: Book) {
-    //    todo!("Add a new book to `self.books`")
-    //}
+    fn add_book(self, book: Book) {
+        self.books.push(book);
+    }
 
     //fn print_books(self) {
     //    todo!("Iterate over `self.books` and each book's title and year")
