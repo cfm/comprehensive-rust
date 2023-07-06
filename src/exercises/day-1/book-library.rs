@@ -1,18 +1,3 @@
-// Copyright 2022 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-// ANCHOR: setup
 struct Library {
     books: Vec<Book>,
 }
@@ -39,74 +24,31 @@ impl Book {
 // - `&mut self` for unique and mutable access,
 // - `self` for unique access by value.
 impl Library {
-    // ANCHOR_END: setup
-
-    // ANCHOR: Library_new
     fn new() -> Library {
-        // ANCHOR_END: Library_new
-        Library { books: Vec::new() }
+        todo!("Initialize and return a `Library` value")
     }
 
-    // ANCHOR: Library_len
     //fn len(self) -> usize {
     //    todo!("Return the length of `self.books`")
     //}
-    // ANCHOR_END: Library_len
-    fn len(&self) -> usize {
-        self.books.len()
-    }
 
-    // ANCHOR: Library_is_empty
     //fn is_empty(self) -> bool {
     //    todo!("Return `true` if `self.books` is empty")
     //}
-    // ANCHOR_END: Library_is_empty
-    fn is_empty(&self) -> bool {
-        self.books.is_empty()
-    }
 
-    // ANCHOR: Library_add_book
     //fn add_book(self, book: Book) {
     //    todo!("Add a new book to `self.books`")
     //}
-    // ANCHOR_END: Library_add_book
-    fn add_book(&mut self, book: Book) {
-        self.books.push(book)
-    }
 
-    // ANCHOR: Library_print_books
     //fn print_books(self) {
     //    todo!("Iterate over `self.books` and each book's title and year")
     //}
-    // ANCHOR_END: Library_print_books
-    fn print_books(&self) {
-        for book in &self.books {
-            println!("{}, published in {}", book.title, book.year);
-        }
-    }
 
-    // ANCHOR: Library_oldest_book
     //fn oldest_book(self) -> Option<&Book> {
     //    todo!("Return a reference to the oldest book (if any)")
     //}
-    // ANCHOR_END: Library_oldest_book
-    fn oldest_book(&self) -> Option<&Book> {
-        // Using a closure and a built-in method:
-        // self.books.iter().min_by_key(|book| book.year)
-
-        // Longer hand-written solution:
-        let mut oldest: Option<&Book> = None;
-        for book in self.books.iter() {
-            if oldest.is_none() || book.year < oldest.unwrap().year {
-                oldest = Some(book);
-            }
-        }
-
-        oldest
-    }
 }
 
-// ANCHOR: main
 // This shows the desired behavior. Uncomment the code below and
 // implement the missing methods. You will need to update the
 // method signatures, including the "self" parameter! You may
@@ -132,7 +74,6 @@ fn main() {
     //println!("The library has {} books", library.len());
     //library.print_books();
 }
-// ANCHOR_END: main
 
 #[test]
 fn test_library_len() {
