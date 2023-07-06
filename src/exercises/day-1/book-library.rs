@@ -30,13 +30,13 @@ impl Library {
         }
     }
 
-    //fn len(self) -> usize {
-    //    todo!("Return the length of `self.books`")
-    //}
+    fn len(self) -> usize {
+        self.books.len()
+    }
 
-    //fn is_empty(self) -> bool {
-    //    todo!("Return `true` if `self.books` is empty")
-    //}
+    fn is_empty(self) -> bool {
+        self.len() == 0
+    }
 
     //fn add_book(self, book: Book) {
     //    todo!("Add a new book to `self.books`")
