@@ -30,27 +30,35 @@ impl Library {
         }
     }
 
-    fn len(self) -> usize {
+    fn len(&self) -> usize {
         self.books.len()
     }
 
-    fn is_empty(self) -> bool {
+    fn is_empty(&self) -> bool {
         self.len() == 0
     }
 
-    fn add_book(self, book: Book) {
+    fn add_book(&mut self, book: Book) {
         self.books.push(book);
     }
 
-    fn print_books(self) {
+    fn print_books(&self) {
         for book in &self.books {
             println!("{} ({})", book.title, book.year);
         }
     }
 
-    //fn oldest_book(self) -> Option<&Book> {
-    //    todo!("Return a reference to the oldest book (if any)")
-    //}
+    fn oldest_book(&self) -> Option<&Book> {
+        let mut oldest_seen: Option<&Book> = None;
+        for book in &self.books {
+            if oldest_seen.is_none() {
+                oldest_seen = Some(&book)
+            } else if book.year < oldest_seen?.year {
+                oldest_seen = Some(&book);
+            }
+        }
+        oldest_seen
+    }
 }
 
 // This shows the desired behavior. Uncomment the code below and
@@ -58,7 +66,7 @@ impl Library {
 // method signatures, including the "self" parameter! You may
 // also need to update the variable bindings within main.
 fn main() {
-    let library = Library::new();
+    let mut library = Library::new();
 
     println!(
         "The library is empty: library.is_empty() -> {}",
