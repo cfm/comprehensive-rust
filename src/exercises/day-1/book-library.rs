@@ -49,15 +49,7 @@ impl Library {
     }
 
     fn oldest_book(&self) -> Option<&Book> {
-        let mut oldest_seen: Option<&Book> = None;
-        for book in &self.books {
-            if oldest_seen.is_none() {
-                oldest_seen = Some(&book)
-            } else if book.year < oldest_seen?.year {
-                oldest_seen = Some(&book);
-            }
-        }
-        oldest_seen
+        self.books.iter().min_by_key(|book| book.year)
     }
 }
 
